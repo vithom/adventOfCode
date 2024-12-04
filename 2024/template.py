@@ -1,5 +1,7 @@
-# file = "input_example.txt"
-file = "input_01.txt"
+import os
+
+# file = os.path.dirname(__file__)+"/input_example.txt"
+file = os.path.dirname(__file__)+"/input.txt"
 
 debug = 0
 
