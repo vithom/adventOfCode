@@ -5,8 +5,13 @@ file = os.path.dirname(__file__)+"/input.txt"
 
 debug = 0
 
-with open(file, 'rt') as f:
-    lines = f.readlines()
+def input(trim = True):
+    with open(file, 'rt') as f:
+        lines = f.readlines()
+        if trim:
+            return [l.replace('\n', '') for l in lines]
+        else:
+            return lines
 
 def common():
     pass
