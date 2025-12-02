@@ -1,6 +1,7 @@
+import os
 import re
 
-with open("input_02.txt", 'rt') as f:
+with open(os.path.dirname(__file__)+"/input_02_2.txt", 'rt') as f:
     lines = f.readlines()
 
 def first_step():
@@ -33,7 +34,7 @@ def first_step():
             continue
         total += int(gameNo.group(1))
 
-    print(f"first step: {total=}")
+    print(f"1st part: {total}")
 
 def second_step():
     total = 0
@@ -50,7 +51,7 @@ def second_step():
 
         total += cubes['greens'] * cubes['blues'] * cubes['reds']
 
-    print(f"second step: {total=}")
+    print(f"2nd part: {total}")
 
 first_step()
 second_step()
