@@ -1,6 +1,7 @@
+import os
 import re
 
-with open("input_ludo.txt", 'rt') as f:
+with open(os.path.dirname(__file__)+"/input_01_2.txt", 'rt') as f:
     lines = f.readlines()
 
 
@@ -10,7 +11,7 @@ def first_step():
         m = re.findall(r'\d', line)
         if m:
             total += int(m[0] + m[-1])
-    print(f"{total=}")
+    print(f"1st part: {total}")
 
 def first_step_other_way():
     total = 0
@@ -18,11 +19,11 @@ def first_step_other_way():
         # m = {c: i for i, c in enumerate(line) if c.isdigit()}
         m = [(i, c) for i, c in enumerate(line) if c.isdigit()]
 
-        # m = re.findall(r'\d', line)
-        print(m)
-        #     if m:
+        # print(m)
+
         total += int(m[0][1] + m[-1][1])
-    print(f"{total=}")
+    
+    print(f"1st part: {total}")
 
 
 def second_step():
@@ -35,9 +36,9 @@ def second_step():
 
         if (len(letters) == 0) or (digits[0].start() < letters[0].start()):
             first = digits[0].group(0)
-            print(f"first: {digits[0].group(0)}")
+            # print(f"first: {digits[0].group(0)}")
         else:
-            print(f"first: {letters[0].group(0)}")
+            # print(f"first: {letters[0].group(0)}")
             for item in zip(["1", "2", "3", "4", "5", "6", "7", "8", "9"],
                             ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]):
                 if item[1] == letters[0].group(0):
@@ -55,7 +56,7 @@ def second_step():
 
         total += int(first + last)
 
-    print(f'{total=}')
+    print(f'2nd part: {total} (wrong)')
 
 def second_step_enhanced():
     total = 0
@@ -93,11 +94,11 @@ def second_step_enhanced():
             if last != "":
                 break
 
-        print(line.strip() + " -> " + first + last)
+        # print(line.strip() + " -> " + first + last)
         total += int(first + last)
-    print(f'\n{total=}')
+    print(f'2nd part: {total}')
 
-# first_step()
-# first_step_other_way()
-# second_step()
+first_step()
+first_step_other_way()
+second_step()
 second_step_enhanced()
